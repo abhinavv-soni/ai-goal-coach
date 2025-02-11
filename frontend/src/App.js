@@ -325,7 +325,16 @@ Note: Use markdown formatting for emphasis (*italic*) and **bold** text. Keep re
                           className="text-xl font-semibold text-secondary-900"
                           components={{
                             p: ({node, ...props}) => <p className="my-0" {...props} />,
-                            a: ({node, ...props}) => <a className="text-primary-600 hover:text-primary-800" {...props} />,
+                            a: ({node, children, ...props}) => (
+                              <a 
+                                className="text-primary-600 hover:text-primary-800" 
+                                {...props}
+                                aria-label={typeof children === 'string' ? children : 'Link'}
+                                role="link"
+                              >
+                                {children}
+                              </a>
+                            ),
                           }}
                         >
                           {goal.description}
@@ -388,7 +397,16 @@ Note: Use markdown formatting for emphasis (*italic*) and **bold** text. Keep re
                                     className="text-gray-600"
                                     components={{
                                       p: ({node, ...props}) => <p className="my-0" {...props} />,
-                                      a: ({node, ...props}) => <a className="text-primary-600 hover:text-primary-800" {...props} />,
+                                      a: ({node, children, ...props}) => (
+                                        <a 
+                                          className="text-primary-600 hover:text-primary-800" 
+                                          {...props}
+                                          aria-label={typeof children === 'string' ? children : 'Link'}
+                                          role="link"
+                                        >
+                                          {children}
+                                        </a>
+                                      ),
                                       ul: ({node, ...props}) => <ul className="my-1" {...props} />,
                                       ol: ({node, ...props}) => <ol className="my-1" {...props} />,
                                       li: ({node, ...props}) => <li className="my-0.5" {...props} />,
@@ -424,7 +442,16 @@ Note: Use markdown formatting for emphasis (*italic*) and **bold** text. Keep re
                                       className="text-primary-600"
                                       components={{
                                         p: ({node, ...props}) => <p className="my-0" {...props} />,
-                                        a: ({node, ...props}) => <a className="text-primary-600 hover:text-primary-800" {...props} />,
+                                        a: ({node, children, ...props}) => (
+                                          <a 
+                                            className="text-primary-600 hover:text-primary-800" 
+                                            {...props}
+                                            aria-label={typeof children === 'string' ? children : 'Link'}
+                                            role="link"
+                                          >
+                                            {children}
+                                          </a>
+                                        ),
                                         ul: ({node, ...props}) => <ul className="my-1" {...props} />,
                                         ol: ({node, ...props}) => <ol className="my-1" {...props} />,
                                         li: ({node, ...props}) => <li className="my-0.5" {...props} />,
